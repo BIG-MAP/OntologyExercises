@@ -76,6 +76,16 @@ ts.add((TimeStamp_S, d['elucidation'],
 
 ## Team A Start ##
 
+raw_data_A = dlite.Instance.from_location(
+    driver='csv',
+    location=datadir / 'TeamA.csv',
+)
+
+# map raw data properties
+ts.add_mapsTo(d['TimeStamp_S'], raw_data_A, 'Zeit,_s')
+ts.add_mapsTo(d['CellVoltage'], raw_data_A, 'Spannung,_V')
+ts.add_mapsTo(d['InstantaneousCurrent'], raw_data_A, 'Strom,_A')
+
 
 ## Team A End ##
 
@@ -148,46 +158,11 @@ for row1 in query_result:
             plt.xlabel('test time')
             
 
-
-        
-        # prop = inst.get_property(split_text[1])
-#     plt.plot(prop, label = split_text[0])
-#     plt.ylabel('battery voltage')
-#     plt.xlabel('test time')
     
 plt.legend()
 plt.show()
     
 
-
-# def calculate_capacity(test_time, battery_current):
-#     battery_capacity = integrate.cumtrapz(
-#         test_time, battery_current, initial = 0)
-#     return battery_capacity
-
-# # Calculate capacity
-# calculate_capacity_IRI = ts.add_function(
-#     func = calculate_capacity,
-#     expects=[d['TimeStamp_S'], d['InstantaneousCurrent']],
-#     returns=[d['Capacity']],
-#     base_iri = BATTINFO,
-# )
-
-# # Create BatteryData instance populated via ontological mappings
-# inst = instantiate(
-#     meta=BatteryTimeSeriesData.uri,
-#     instances=[processed_data],
-#     triplestore=ts,
-#     allow_incomplete=True,
-#     quantity=ureg.Quantity,  # with our custum units
-# )
-
-# cap = calculate_capacity(processed_data.test_time, processed_data.battery_current)
-# print()
-# print('calculated capacity')
-# print(cap)
-
-
 # save the collection
 #collection.save('json', f'{thisdir}/output/cell_collection.json', 'mode=w')
-raw_data.save('json', f'{thisdir}/output/data_extended.json', 'mode=w')
+#raw_data.save('json', f'{thisdir}/output/data_extended.json', 'mode=w')
