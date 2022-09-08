@@ -86,10 +86,16 @@ ts.add((TimeStamp_S, d['elucidation'],
 ## Team B End ##
 
 
-## Team  C Start ##
+## Team D Start ##
 
 
 ## Team C End ##
+
+
+## Team D Start ##
+
+
+## Team D End ##
 
 
 # query the triplestore
@@ -149,8 +155,8 @@ for row1 in query_result:
 #     plt.ylabel('battery voltage')
 #     plt.xlabel('test time')
     
-# plt.legend()
-# plt.show()
+plt.legend()
+plt.show()
     
 
 

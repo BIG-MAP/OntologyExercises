@@ -1,0 +1,36 @@
+{
+    "name": "SimpleTimeSeriesBatteryData",
+    "version": "0.1",
+    "namespace": "http://onto-ns.com/meta",
+    "description": "A description of battery time series data",
+    "dimensions": [
+        {
+            "name": "n_measurements",
+            "description": "Number of measurements."
+        }
+    ],
+    "properties": [
+
+        {
+            "name": "test_time",
+            "type": "float",
+            "dims": ["n_measurements"],
+            "unit": "s",
+            "description": "Time of the measurement relative to the start of the experiment."
+        },
+        {
+            "name": "battery_current",
+            "type": "float",
+            "dims": ["n_measurements"],
+            "unit": "A",
+            "description": "Measured instantaneous electric current through the battery."
+        },
+        {
+            "name": "battery_voltage",
+            "type": "float",
+            "dims": ["n_measurements"],
+            "unit": "V",
+            "description": "Measured instantaneous voltage of the battery."
+        }
+    ]
+}
